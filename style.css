@@ -1,0 +1,27 @@
+* {
+    border: red solid;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.main {
+    height: 600px;
+    width: 500px;
+}
+
+.title {
+    height: 100px;
+    width: 100%;
+}
+
+.inputs {
+    width: 150px;
+    height: 250px;
+    align-self: center;
+}
