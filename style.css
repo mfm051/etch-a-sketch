@@ -1,5 +1,6 @@
 * {
-    border: red solid;
+    border: black solid;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,7 +18,16 @@ body {
 
 .title {
     height: 100px;
-    width: 100%;
+    width: 500px;
+}
+
+.sketch {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
 }
 
 .inputs {
