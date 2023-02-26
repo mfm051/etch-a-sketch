@@ -1,33 +1,56 @@
-* {
+/* * {
     border: black solid;
     box-sizing: border-box;
-}
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    background-color:black;
 }
 
 .main {
     height: 600px;
     width: 500px;
+    /* border-radius: 15px 15px 8px 8px; */
+    /* background-color: rgb(131, 36, 36); */
+    /* border: rgb(131, 36, 36) solid 25px; */
 }
 
 .title {
     height: 100px;
     width: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .sketch {
     display: flex;
+    box-sizing: border-box;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 500px;
     width: 500px;
+    background-color: green;
+    box-shadow: 0 0 50px green;
+}
+
+.sketch > * {
+    border: 1px rgb(218, 212, 212) solid;
+}
+
+.text {
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+    color:green;
+    text-shadow: green 1px 1px 15px;
+    /* text-decoration: wavy white underline 2px; */
 }
 
 .inputs {

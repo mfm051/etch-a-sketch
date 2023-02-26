@@ -10,7 +10,7 @@ function getSquaresPerLine () {
 }
 
 function getSquareLength (numOfSquaresPerLine) {
-    let squareLength = 494/numOfSquaresPerLine
+    let squareLength = (500/numOfSquaresPerLine - 2) //-2px of border
     return squareLength;
 }
 
