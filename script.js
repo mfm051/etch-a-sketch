@@ -1,9 +1,12 @@
 // print squares on screen
+let numOfSquaresPerLine = getSquaresPerLine();
+
+let canvas = document.querySelector(".canvas");
 
 function getSquaresPerLine () {
     let numOfSquaresPerLine = prompt('num of squares per line',16);
     if (numOfSquaresPerLine > 40) {
-        alert('max of 40 reached!');  // more than 40 is possible, but makes drawing difficult 
+        alert('max of 40 reached!');  // more than 40 is possible, but it makes drawing difficult 
         numOfSquaresPerLine = 40;
     }
     return numOfSquaresPerLine; 
@@ -25,12 +28,9 @@ function printSquares (numOfSquaresPerLine,canvas) {
     }
 }
 
-let numOfSquaresPerLine = getSquaresPerLine();
-let canvas = document.querySelector(".canvas");
 printSquares(numOfSquaresPerLine, canvas);
 
 // Change color of square
-
 let defaultColor = "#05BE05";
 let red = "#F33B1B";
 let yellow = "#EBFF0F";
@@ -39,30 +39,30 @@ let canvasColor = "black";
 
 let currentColor = defaultColor;
 
-canvas.addEventListener("mousedown", (e) => {draw(e)});
+let titleText = document.querySelector(".text");
+
+let squares = document.querySelectorAll(".square");
 
 function draw(e, color) {
     if (e.buttons === 1) e.target.style.backgroundColor = color;
 };
 
-let titleText = document.querySelector(".text");
-
-function changeStyle (color) {
-    squares.forEach((square) => {   square.style.borderColor = color; 
-                                    square.style.boxShadow = `0 0 10px ${color}`});
-    canvas.style.boxShadow = `0 0 50px ${color}`;
-    titleText.style.color = color;
-    titleText.style.textShadow = `${color} 1px 1px 15px`;
-    reset.style.color = color;
-    reset.style.textShadow = `${color} 1px 1px 5px`;
+function changeStyle (e, color) {
+    if (e.buttons === 1) {
+        e.target.style.borderColor = color;
+        e.target.style.boxShadow = `0 0 10px ${color}`;
+        canvas.style.boxShadow = `0 0 50px ${color}`;
+        titleText.style.color = color;
+        titleText.style.textShadow = `${color} 1px 1px 15px`;
+        reset.style.color = color;
+        reset.style.textShadow = `${color} 1px 1px 5px`;
+    }
 }
 
-let squares = document.querySelectorAll(".square");
-squares.forEach((square) => square.addEventListener("mousemove",(e) => {draw(e, currentColor); changeStyle(currentColor)}));
-
+canvas.addEventListener("mousedown", (e) => {draw(e)});
+squares.forEach((square) => square.addEventListener("mousemove",(e) => {draw(e, currentColor); changeStyle(e, currentColor)}));
 
 // Reset canvas
-
 reset = document.getElementById("reset");
 
 function resetCanvas () {
