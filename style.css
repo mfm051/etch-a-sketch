@@ -34,22 +34,21 @@ body {
     align-items: center;
     height: 500px;
     width: 500px;
-    background-color: green;
-    box-shadow: 0 0 50px green;
+    box-shadow: 0 0 50px #05BE05;
 }
 
 .canvas > * {
-    border: 1px rgb(46, 228, 85) solid;
-    box-shadow: 0 0 10px rgb(46, 228, 85);
+    border: 1px #05BE05 solid;
+    box-shadow: 0 0 10px #05BE05;
     background-color: black;
-    opacity: .6;
+    opacity: .8;
 }
 
 .text {
     font-family: 'VT323', monospace;
     font-size: 50px;
     color:rgb(5, 190, 5);
-    text-shadow: green 1px 1px 15px;
+    text-shadow: #05BE05 1px 1px 15px;
 }
 
 .inputs {
@@ -62,17 +61,17 @@ body {
 }
 
 #reset {
-    color:rgb(5, 190, 5);
+    color:#05BE05;
     font-family: 'VT323', monospace;
     font-size: 20px;
-    text-shadow: green 1px 1px 5px;
+    text-shadow: #05BE05 1px 1px 5px;
     border: none;
     background-color: black;
     padding: 0;
 }
 
 #reset:hover {
-    color:rgb(46, 228, 85);
+    text-decoration: currentColor dotted underline 1px;
 }
 
 .colors {
@@ -101,5 +100,5 @@ body {
 }
 
 .colors>*:hover {
-    text-decoration: currentColor underline 1px;
+    text-decoration: currentColor dotted underline 1px;
 }
