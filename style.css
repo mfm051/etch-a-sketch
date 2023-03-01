@@ -41,6 +41,8 @@ body {
 .canvas > * {
     border: 1px rgb(46, 228, 85) solid;
     box-shadow: 0 0 10px rgb(46, 228, 85);
+    background-color: black;
+    opacity: .6;
 }
 
 .text {
@@ -54,6 +56,9 @@ body {
     width: 150px;
     height: 100px;
     align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 #reset {
@@ -63,8 +68,38 @@ body {
     text-shadow: green 1px 1px 5px;
     border: none;
     background-color: black;
+    padding: 0;
 }
 
 #reset:hover {
     color:rgb(46, 228, 85);
+}
+
+.colors {
+    display: flex;
+    gap: 5px;
+}
+
+.green {
+    color: rgb(46, 228, 85);
+    text-shadow: rgb(46, 228, 85) 1px 1px 5px;
+}
+
+.red {
+    color: #F33B1B;
+    text-shadow: #F33B1B 1px 1px 5px;
+}
+
+.yellow {
+    color: #EBFF0F;
+    text-shadow: #EBFF0F 1px 1px 5px;
+}
+
+.blue {
+    color: #27EBF6;
+    text-shadow: #27EBF6 1px 1px 5px;
+}
+
+.colors>*:hover {
+    text-decoration: currentColor underline 1px;
 }

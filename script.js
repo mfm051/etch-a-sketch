@@ -25,8 +25,6 @@ function printSquares (numOfSquaresPerLine,canvas) {
     }
 }
 
-//test of adding squares
-
 let numOfSquaresPerLine = getSquaresPerLine();
 let canvas = document.querySelector(".canvas");
 printSquares(numOfSquaresPerLine, canvas);
@@ -34,16 +32,21 @@ printSquares(numOfSquaresPerLine, canvas);
 // Change color of square
 
 let defaultColor = "rgb(46, 228, 85)";
-let canvasColor = "green";
+let redVersion = "#F33B1B";
+let yellowVersion = "#EBFF0F";
+let blueVersion = "#27EBF6";
+let canvasColor = "black";
+
+let currentColor = defaultColor;
 
 canvas.addEventListener("mousedown", (e) => {draw(e)});
 
-function draw(e) {
-    if (e.buttons === 1) e.target.style.backgroundColor = defaultColor;
+function draw(e, color) {
+    if (e.buttons === 1) e.target.style.backgroundColor = color;
 };
 
 let squares = document.querySelectorAll(".square");
-squares.forEach((square) => square.addEventListener("mousemove",(e) => draw(e)));
+squares.forEach((square) => square.addEventListener("mousemove",(e) => draw(e, currentColor)));
 
 
 // Reset canvas
@@ -55,3 +58,6 @@ function resetCanvas () {
 };
 
 reset.addEventListener("mousedown", resetCanvas);
+
+// Pick a color
+
