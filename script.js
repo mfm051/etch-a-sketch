@@ -33,16 +33,12 @@ printSquares(numOfSquaresPerLine, canvas);
 
 // Change color of square
 
-let drawingMode = false;
-let eraseColor = "green";
 let defaultColor = "rgb(46, 228, 85)";
 
-canvas.addEventListener("mousedown", (e) => {drawingMode = true; draw(e)});
-canvas.addEventListener("mouseup", () => drawingMode = false);
+canvas.addEventListener("mousedown", (e) => {draw(e)});
 
 function draw(e) {
-    if (drawingMode) e.target.style.backgroundColor = defaultColor;
-    console.log(e.target.style.backgroundColor);
+    if (e.buttons === 1) e.target.style.backgroundColor = defaultColor;
 };
 
 let squares = document.querySelectorAll(".square");
