@@ -38,8 +38,7 @@ body {
 }
 
 .canvas > * {
-    border: 1px #05BE05 solid;
-    box-shadow: 0 0 10px #05BE05;
+    border: 1px #393B39 solid;
     background-color: black;
     opacity: .8;
 }

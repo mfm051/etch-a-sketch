@@ -44,29 +44,33 @@ let titleText = document.querySelector(".text");
 let squares = document.querySelectorAll(".square");
 
 function draw(e, color) {
-    if (e.buttons === 1) e.target.style.backgroundColor = color;
-};
-
-function changeStyle (e, color) {
     if (e.buttons === 1) {
+        e.target.style.backgroundColor = color;
         e.target.style.borderColor = color;
         e.target.style.boxShadow = `0 0 10px ${color}`;
-        canvas.style.boxShadow = `0 0 50px ${color}`;
-        titleText.style.color = color;
-        titleText.style.textShadow = `${color} 1px 1px 15px`;
-        reset.style.color = color;
-        reset.style.textShadow = `${color} 1px 1px 5px`;
-    }
+    } 
+};
+
+function changeCanvasStyle (color) {
+    canvas.style.boxShadow = `0 0 50px ${color}`;
+    titleText.style.color = color;
+    titleText.style.textShadow = `${color} 1px 1px 15px`;
+    reset.style.color = color;
+    reset.style.textShadow = `${color} 1px 1px 5px`;
 }
 
 canvas.addEventListener("mousedown", (e) => {draw(e)});
-squares.forEach((square) => square.addEventListener("mousemove",(e) => {draw(e, currentColor); changeStyle(e, currentColor)}));
+squares.forEach((square) => square.addEventListener("mousemove",(e) => {draw(e, currentColor); changeCanvasStyle(currentColor)}));
 
 // Reset canvas
 reset = document.getElementById("reset");
 
 function resetCanvas () {
-    squares.forEach((square) => square.style.backgroundColor = canvasColor)
+    squares.forEach((square) => {
+        square.style.backgroundColor = canvasColor;
+        square.style.borderColor = "#393B39";
+        square.style.boxShadow = "none"; 
+    })
 };
 
 reset.addEventListener("mousedown", resetCanvas);
