@@ -22,7 +22,7 @@ body {
     height: 100px;
     width: 500px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -52,6 +52,19 @@ body {
 
 .inputs {
     width: 150px;
-    height: 250px;
+    height: 100px;
     align-self: center;
+}
+
+#reset {
+    color:rgb(5, 190, 5);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    text-shadow: green 1px 1px 5px;
+    border: none;
+    background-color: black;
+}
+
+#reset:hover {
+    color:rgb(46, 228, 85);
 }

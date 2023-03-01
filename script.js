@@ -34,6 +34,7 @@ printSquares(numOfSquaresPerLine, canvas);
 // Change color of square
 
 let defaultColor = "rgb(46, 228, 85)";
+let canvasColor = "green";
 
 canvas.addEventListener("mousedown", (e) => {draw(e)});
 
@@ -43,3 +44,14 @@ function draw(e) {
 
 let squares = document.querySelectorAll(".square");
 squares.forEach((square) => square.addEventListener("mousemove",(e) => draw(e)));
+
+
+// Reset canvas
+
+reset = document.getElementById("reset");
+
+function resetCanvas () {
+    squares.forEach((square) => square.style.backgroundColor = canvasColor)
+};
+
+reset.addEventListener("mousedown", resetCanvas);
