@@ -1,28 +1,21 @@
-// Get number of squares
+// Create squares
 let numOfSquaresSlider = document.getElementById("num-of-squares");
-let numOfSquaresPerLine = Number(numOfSquaresSlider.value);
-// let numOfSquaresPerLine = getSquaresPerLine();
-
-// function getSquaresPerLine () {
-//     let numOfSquaresPerLine = prompt('num of squares per line',16);
-//     if (numOfSquaresPerLine > 40) {
-//         alert('max of 40 reached!');  // more than 40 is possible, but it makes drawing difficult 
-//         numOfSquaresPerLine = 40;
-//     }
-//     return numOfSquaresPerLine; 
-// }
-
-// Print squares on screen
-let canvas = document.querySelector(".canvas");
+let numOfSquaresPerLine = 16;
 
 function getSquareLength (numOfSquaresPerLine) {
     let squareLength = (500/numOfSquaresPerLine - 2) //-2px of border
     return squareLength;
 }
 
+numOfSquaresSlider.addEventListener("input", (e) => numOfSquaresPerLine = e.target.value);
+
+// Print squares
+let canvas = document.querySelector(".canvas");
+let squares = document.querySelectorAll(".square");
+
 function printSquares (numOfSquaresPerLine,canvas) {
     let squareLength = getSquareLength(numOfSquaresPerLine);
-    for (let i=0;i<numOfSquaresPerLine*numOfSquaresPerLine;i++) {
+    for (let i = 0; i < (numOfSquaresPerLine*numOfSquaresPerLine); i++) {
         let square = document.createElement('div');
         square.style.width = `${squareLength}px`;
         square.style.height = `${squareLength}px`;
@@ -32,6 +25,12 @@ function printSquares (numOfSquaresPerLine,canvas) {
 }
 
 printSquares(numOfSquaresPerLine, canvas);
+
+numOfSquaresSlider.addEventListener("change", () => {   canvas.textContent = ""; 
+                                                        getSquareLength(numOfSquaresPerLine); 
+                                                        printSquares(numOfSquaresPerLine, canvas);
+                                                        squares = document.querySelectorAll(".square"); // # of squares changes
+})
 
 // Pick a color
 let defaultColor = "#05BE05";
@@ -56,10 +55,8 @@ document.querySelector(".eraser").addEventListener("mousedown", () => {currentCo
 
 // Change color of square
 let currentColor = defaultColor;
-
 let titleText = document.querySelector(".text");
 
-let squares = document.querySelectorAll(".square");
 
 function draw(e, color) {
     if (e.buttons === 1) {

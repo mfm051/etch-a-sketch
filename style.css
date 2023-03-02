@@ -106,3 +106,7 @@ body {
 .colors>*:hover {
     text-decoration: currentColor dotted underline 1px;
 }
+
+input[type="range"] {
+    background-color: #05BE05;
+}
