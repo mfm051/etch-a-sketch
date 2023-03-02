@@ -98,6 +98,11 @@ body {
     text-shadow: #27EBF6 1px 1px 5px;
 }
 
+.eraser {
+    color: white;
+    text-shadow: white 1px 1px 5px;
+}
+
 .colors>*:hover {
     text-decoration: currentColor dotted underline 1px;
 }
