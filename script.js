@@ -69,7 +69,6 @@ updateSquares(squares);
 reset = document.getElementById("reset");
 
 function resetCanvas () {
-    // squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.style.backgroundColor = canvasColor;
         square.style.borderColor = "#393B39";
@@ -80,9 +79,12 @@ function resetCanvas () {
 reset.addEventListener("mousedown", resetCanvas);
 
 //Change number of squares
-numOfSquaresSlider.addEventListener("change", 
-                                    (e) => {numOfSquaresPerLine = e.target.value;
-                                            canvas.textContent = "";
-                                            printSquares(numOfSquaresPerLine, canvas);
-                                            squares = document.querySelectorAll(".square");
-                                            updateSquares(squares)});
+numOfSquaresSlider.addEventListener("change",
+     (e) => {
+        numOfSquaresPerLine = e.target.value;
+        canvas.textContent = "";
+        printSquares(numOfSquaresPerLine, canvas);
+        squares = document.querySelectorAll(".square");
+        updateSquares(squares)  
+    }
+);
