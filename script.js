@@ -1,36 +1,29 @@
-// Create squares
+//Print Squares
 let numOfSquaresSlider = document.getElementById("num-of-squares");
+let numOfSquaresPerLine = numOfSquaresSlider.value;
 
-function getSquareLength (numOfSquaresPerLine) {
-    let squareLength = (500/numOfSquaresPerLine - 2) //-2px of border
-    return squareLength;
-}
-
-numOfSquaresSlider.addEventListener("input", (e) => numOfSquaresPerLine = e.target.value);
-
-// Print squares
 let canvas = document.querySelector(".canvas");
+let squares; 
 
 function printSquares (numOfSquaresPerLine,canvas) {
-    let squareLength = getSquareLength(numOfSquaresPerLine);
     for (let i = 0; i < (numOfSquaresPerLine*numOfSquaresPerLine); i++) {
         let square = document.createElement('div');
-        square.style.width = `${squareLength}px`;
-        square.style.height = `${squareLength}px`;
+        square.style.width = `calc(100% / ${numOfSquaresPerLine} - 2px)`;
+        square.style.height = square.style.width;
         square.classList.add('square');
         canvas.appendChild(square);
     }
+    squares = document.querySelectorAll(".square");
 }
 
-let numOfSquaresPerLine = numOfSquaresSlider.value; 
 printSquares(numOfSquaresPerLine, canvas);          
-let squares = document.querySelectorAll(".square"); 
 
-// Pick a color
+//Pick a color
 let defaultColor = "#05BE05";
 let red = "#F33B1B";
 let yellow = "#EBFF0F";
 let blue = "#27EBF6";
+let white = "#FCFCFC";
 let canvasColor = "black";
 
 let currentColor = defaultColor;
@@ -49,9 +42,9 @@ document.querySelector(".green").addEventListener("mousedown", () => {currentCol
 document.querySelector(".red").addEventListener("mousedown", () => {currentColor = red; changeCanvasStyle(red)});
 document.querySelector(".yellow").addEventListener("mousedown", () => {currentColor = yellow; changeCanvasStyle(yellow)});
 document.querySelector(".blue").addEventListener("mousedown", () => {currentColor = blue; changeCanvasStyle(blue)});
-document.querySelector(".eraser").addEventListener("mousedown", () => {currentColor = canvasColor; changeCanvasStyle(defaultColor)});
+document.querySelector(".eraser").addEventListener("mousedown", () => {currentColor = canvasColor; changeCanvasStyle(white)});
 
-// Change color of square
+//Change color of squares
 function draw(e) {
     if (e.buttons === 1) {
         e.target.style.backgroundColor = currentColor;
@@ -72,11 +65,11 @@ function updateSquares (squares) {
 
 updateSquares(squares);
 
-// Reset canvas
+//Reset canvas
 reset = document.getElementById("reset");
 
 function resetCanvas () {
-    squares = document.querySelectorAll(".square");
+    // squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.style.backgroundColor = canvasColor;
         square.style.borderColor = "#393B39";
@@ -86,9 +79,10 @@ function resetCanvas () {
 
 reset.addEventListener("mousedown", resetCanvas);
 
-// Change number of squares
+//Change number of squares
 numOfSquaresSlider.addEventListener("change", 
-                                    () => { canvas.textContent = "";
+                                    (e) => {numOfSquaresPerLine = e.target.value;
+                                            canvas.textContent = "";
                                             printSquares(numOfSquaresPerLine, canvas);
                                             squares = document.querySelectorAll(".square");
                                             updateSquares(squares)});
