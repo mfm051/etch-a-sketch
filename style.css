@@ -45,7 +45,7 @@ body {
 
 .text {
     font-family: 'VT323', monospace;
-    font-size: 50px;
+    font-size: 45px;
     color:rgb(5, 190, 5);
     text-shadow: #05BE05 1px 1px 15px;
 }
@@ -71,11 +71,16 @@ body {
 
 #reset:hover {
     text-decoration: currentColor dotted underline 1px;
+    cursor: pointer;
 }
 
 .colors {
     display: flex;
     gap: 5px;
+}
+
+.colors>* {
+    font-size: 15px;
 }
 
 .green {
@@ -105,4 +110,9 @@ body {
 
 .colors>*:hover {
     text-decoration: currentColor dotted underline 1px;
+    cursor: pointer;
+}
+
+input[type="range"]:hover {
+    cursor: pointer;
 }
