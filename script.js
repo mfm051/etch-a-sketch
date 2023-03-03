@@ -1,6 +1,7 @@
 //Print Squares
 let numOfSquaresSlider = document.getElementById("num-of-squares");
 let numOfSquaresPerLine = numOfSquaresSlider.value;
+let sliderLabel = document.getElementById("num-of-squares-label");
 
 let canvas = document.querySelector(".canvas");
 let squares; 
@@ -14,6 +15,7 @@ function printSquares (numOfSquaresPerLine,canvas) {
         canvas.appendChild(square);
     }
     squares = document.querySelectorAll(".square");
+    sliderLabel.innerText = `${numOfSquaresPerLine}x${numOfSquaresPerLine}`;
 }
 
 printSquares(numOfSquaresPerLine, canvas);          
@@ -36,6 +38,7 @@ function changeCanvasStyle (color) {
     titleText.style.textShadow = `${color} 1px 1px 15px`;
     reset.style.color = color;
     reset.style.textShadow = `${color} 1px 1px 5px`;
+    sliderLabel.style.color = color;
 }
 
 document.querySelector(".green").addEventListener("mousedown", () => {currentColor = defaultColor; changeCanvasStyle(defaultColor)});

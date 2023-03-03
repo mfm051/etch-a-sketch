@@ -116,3 +116,13 @@ body {
 input[type="range"]:hover {
     cursor: pointer;
 }
+
+.input-area {
+    display: flex;
+    gap: 5px;
+}
+
+.input-area>label {
+    color: #05BE05;
+    font-size: 16px;
+}
